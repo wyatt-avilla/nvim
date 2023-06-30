@@ -1,1 +1,1 @@
-require("wyatt")
+require("config")

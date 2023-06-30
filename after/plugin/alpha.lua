@@ -37,12 +37,12 @@ dashboard.section.header.val = {
 }
 
  dashboard.section.buttons.val = {
-   dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
-   dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-   dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
-   dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
-   dashboard.button("c", "  Configuration", ":e ~/.config/nvim/<CR>"),
-   dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+   dashboard.button("f", "  find file", ":Telescope find_files <CR>"),
+   dashboard.button("e", "  new file", ":ene <BAR> startinsert <CR>"),
+   dashboard.button("r", "  recently used files", ":Telescope oldfiles <CR>"),
+   dashboard.button("t", "  find text", ":Telescope live_grep <CR>"),
+   dashboard.button("c", "  configuration", ":e ~/.config/nvim/<CR>"),
+   dashboard.button("q", "  quit", ":qa<CR>"),
 }
 
 local function footer()
@@ -50,15 +50,7 @@ local function footer()
     local version = vim.version()
     local nvim_version_info = "     v" .. version.major .. "." .. version.minor .. "." .. version.patch
 
-    os.execute("/home/wyatt/scripts/get-nvim-startup.sh")
-
-    local handle = io.open("/tmp/NEOVIM-STARTUP.log")
-    if handle then
-        StartupMS = handle:read("*a")
-        StartupMS = StartupMS:match("^%s*(.-)%s*$")
-        handle:close()
-    end
-    return " " .. total_plugins .. " plugins loaded in " .. StartupMS .. "ms" .. nvim_version_info
+    return " " .. total_plugins .. " plugins" .. "             " .. nvim_version_info
 end
 
 dashboard.section.footer.val = footer()

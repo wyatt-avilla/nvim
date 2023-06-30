@@ -1,5 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -63,41 +61,40 @@ return require('packer').startup(function(use)
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {                                      -- Optional
+            {'neovim/nvim-lspconfig'},             -- required
+            {                                      -- optional
             'williamboman/mason.nvim',
             run = function()
                 pcall(vim.cmd, 'MasonUpdate')
             end,
         },
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+        {'williamboman/mason-lspconfig.nvim'}, -- optional
 
         -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-        {'L3MON4D3/LuaSnip'},     -- Required
+        {'hrsh7th/nvim-cmp'},     -- required
+        {'hrsh7th/cmp-nvim-lsp'}, -- required
+        {'L3MON4D3/LuaSnip'},     -- required
+
+        {"hrsh7th/cmp-path"},     -- path
+        {"hrsh7th/cmp-buffer"},   -- path
+
+        -- misc. lsp stuff
+        {'simrat39/rust-tools.nvim'},
     }
 }
 
 
--- alpha
-use {
-    'goolord/alpha-nvim',
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
-    end
-}
+    -- alpha
+    use {
+        'goolord/alpha-nvim',
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        end
+    }
 
 
--- startup time
-use ( "dstein64/vim-startuptime" )
-
-
-
-
-
-
-
+    -- startup time
+    use ( "dstein64/vim-startuptime" )
 
 
 end)

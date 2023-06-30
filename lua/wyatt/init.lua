@@ -1,5 +1,0 @@
-require("wyatt.remap")
-require("wyatt.packer")
-require("wyatt.colors")
-require("wyatt.set")
-require("wyatt.misc")
