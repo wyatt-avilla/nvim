@@ -1,5 +1,4 @@
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 
 
 require("telescope").setup {
@@ -22,10 +21,3 @@ require("telescope").setup {
   },
 }
 require("telescope").load_extension "file_browser"
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<space>fb",
-  ":Telescope file_browser<CR>",
-  { noremap = true }
-)
