@@ -95,5 +95,8 @@ use {
     -- startup time
     use ( "dstein64/vim-startuptime" )
 
+    -- autoclose
+    use ( 'm4xshen/autoclose.nvim' )
+
 
 end)
