@@ -21,8 +21,13 @@ cmp.setup({
   }
 })
 
-local rt = require("rust-tools")
 
+require("mason-lspconfig").setup({
+    ensure_installed = { "lua_ls", "pyright" },
+})
+
+
+local rt = require("rust-tools")
 rt.setup({
   server = {
     on_attach = function(_, bufnr)
