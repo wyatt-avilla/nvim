@@ -24,6 +24,12 @@ vim.api.nvim_set_keymap('v', 'l', 'e', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<S-k>', '<S-n>', { noremap = true, silent = true })
 
 
+-- :wq as root
+vim.cmd([[
+  command! -nargs=0 WW :execute 'w !doas tee % >/dev/null' | q!
+]])
+
+
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>lf', ':Telescope file_browser<CR>', { noremap = true })
