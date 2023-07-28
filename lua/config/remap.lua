@@ -32,4 +32,4 @@ vim.cmd([[
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', {})
-vim.api.nvim_set_keymap('n', '<leader>lf', ':Telescope file_browser<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>lf', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', { noremap = true })
