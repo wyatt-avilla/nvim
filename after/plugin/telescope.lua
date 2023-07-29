@@ -15,6 +15,7 @@ require("telescope").setup {
     file_browser = {
       hijack_netrw = true,
       cwd_to_path = true,
+      theme = "dropdown",
       mappings = {
         ["n"] = {
 			["n"] = fbactions.goto_parent_dir,
