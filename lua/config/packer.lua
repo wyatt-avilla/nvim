@@ -98,5 +98,7 @@ use {
     -- autoclose
     use ( 'm4xshen/autoclose.nvim' )
 
+    -- surround
+    use ( 'tpope/vim-surround' )
 
 end)
