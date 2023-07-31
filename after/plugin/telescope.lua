@@ -5,10 +5,11 @@ local fbactions = require "telescope".extensions.file_browser.actions
 require("telescope").setup {
   defaults = {
      initial_mode = "normal",
-  },
-  mappings = {
-      ["n"] = {
-
+      mappings = {
+          ["n"] = {
+                ["e"] = tsactions.move_selection_next,
+                ["i"] = tsactions.move_selection_previous,
+          },
       },
   },
   extensions = {
