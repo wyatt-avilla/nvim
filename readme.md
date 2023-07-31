@@ -5,4 +5,7 @@ I used [this](https://github.com/ThePrimeagen/init.lua) config as a starting poi
 ## Directories
 
 - `./after/plugin` contains plugin specific configs
-- `./lua/config` has general nvim stuff including remaps
+- `./lua/config` has general nvim stuff
+
+## Preview
+![Splash](splash-screenshot.png)
