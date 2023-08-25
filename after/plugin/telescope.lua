@@ -24,10 +24,11 @@ require("telescope").setup {
 			["i"] = tsactions.move_selection_previous,
 			["o"] = tsactions.select_default,
 
-			["s"] = tsactions.toggle_selection + tsactions.move_selection_better,
+			["s"] = tsactions.toggle_selection + tsactions.move_selection_worse,
 			["."] = fbactions.toggle_hidden,
 			["m"] = fbactions.create_from_prompt,
 			["v"] = fbactions.move,
+			["<S-X>"] = fbactions.remove,
         },
       },
     },
