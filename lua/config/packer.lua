@@ -101,4 +101,7 @@ use {
     -- surround
     use ( 'tpope/vim-surround' )
 
+    -- gentoo/portage syntax
+    use ( 'gentoo/gentoo-syntax' )
+
 end)
