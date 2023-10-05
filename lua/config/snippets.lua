@@ -29,12 +29,12 @@ local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
 ls.add_snippets("markdown", {
-      s("\\frac", {
-    t("\\frac{"),
-    i(1, "", "a/b"),  -- Use a/b as the default value
-    t("}{"),
-    i(2, "", ""),
-    t("}"),
-    i(0),
-  }),
+    s({trig="frac", desc="nicely expands fraction"}, {
+        t("\\frac{"),
+        i(1, "a"),
+        t("}{"),
+        i(2, "b"),
+        t("}"),
+        i(0),
+    })
 })

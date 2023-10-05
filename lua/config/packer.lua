@@ -72,7 +72,7 @@ use {
         -- Autocompletion
         {'hrsh7th/nvim-cmp'},     -- required
         {'hrsh7th/cmp-nvim-lsp'}, -- required
-        {'L3MON4D3/LuaSnip'},     -- required
+        {'L3MON4D3/LuaSnip', run = "make install_jsregexp"},     -- required
 
         {"hrsh7th/cmp-path"},     -- path
         {"hrsh7th/cmp-buffer"},   -- path

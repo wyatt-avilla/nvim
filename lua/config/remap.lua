@@ -2,13 +2,13 @@ vim.g.mapleader = " "
 
 -- colemak dh movement rebinds
 vim.api.nvim_set_keymap('n', 'n', '<Left>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', 'n', '<Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', 'n', '<Left>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'e', '<Down>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', 'e', '<Down>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', 'e', '<Down>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'i', '<Up>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', 'i', '<Up>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', 'i', '<Up>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'o', '<Right>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', 'o', '<Right>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', 'o', '<Right>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', 'h', 'i', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', 'h', 'i', { noremap = true, silent = true })
@@ -28,6 +28,10 @@ vim.api.nvim_set_keymap('n', '<S-k>', '<S-n>', { noremap = true, silent = true }
 vim.cmd([[
   command! -nargs=0 WW :execute 'w !doas tee % >/dev/null' | q!
 ]])
+
+
+--  delete without yanking
+vim.api.nvim_set_keymap('x', 'x', '\"_d', { noremap = true, silent = true })
 
 
 -- telescope
