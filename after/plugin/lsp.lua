@@ -3,11 +3,20 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.setup()
 
-
+local luasnip = require('luasnip')
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  sources = {
+      { name = 'luasnip'},
+      { name = 'nvim_lsp'}
+  },
   mapping = {
     -- `Enter` key to confirm completion
     ['<CR>'] = cmp.mapping.confirm({select = false}),
