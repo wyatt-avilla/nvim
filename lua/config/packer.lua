@@ -76,9 +76,6 @@ use {
 
         {"hrsh7th/cmp-path"},     -- path
         {"hrsh7th/cmp-buffer"},   -- path
-
-        -- misc. lsp stuff
-        {'simrat39/rust-tools.nvim'},
     }
 }
 
