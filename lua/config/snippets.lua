@@ -1,6 +1,11 @@
+local ls = require'luasnip'
+local tsutils = require "config.tsutils"
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local ls = require'luasnip'
+ls.config.set_config({
+    enable_autosnippets = true,
+})
+
 local s = ls.snippet
 local sn = ls.snippet_node
 local isn = ls.indent_snippet_node
@@ -29,12 +34,52 @@ local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
 ls.add_snippets("markdown", {
-    s({trig="frac", desc="nicely expands fraction"}, {
+    s({trig="ff", name="fraction", desc="fraction expansion with placeholders", snippetType="autosnippet"}, {
         t("\\frac{"),
         i(1, "a"),
         t("}{"),
         i(2, "b"),
         t("}"),
         i(0),
-    })
+    },
+      { condition = tsutils.in_mathzone }
+    ),
+
+    s({trig="Rn", name="R^n", desc="n-space notation", snippetType="autosnippet" }, {
+        t("\\mathbb{R}^"),
+        i(1, "n"),
+        i(0),
+    },
+      { condition = tsutils.in_mathzone }
+    ),
+
+    s({trig="([%a])foo", name="foo", desc="bar", regTrig=true,  snippetType="autosnippet" }, {
+        t("bar"),
+    },
+      { condition = tsutils.in_mathzone }
+    ),
+
+    s({trig = "([^%a])mm", wordTrig = false, regTrig = true, snippetType="autosnippet"}, {
+        t(" $"),
+        i(1, "x"),
+        t("$"),
+        i(0),
+    }),
+
+    s({trig="bmatrix", name="testname", desc="2x2 b-matrix", }, {
+        t({ "\\begin{bmatrix}", "" }),
+        i(1, "a"), t(" & "), i(2, "b"), t( {" \\\\", ""} ),
+        i(3, "c"), t(" & "), i(4, "d"), t( {" \\\\", ""} ),
+        t( {"\\end{bmatrix}", ""} ),
+        i(0),
+    }),
+
+    s({trig="pmatrix", desc="2x2 p-matrix", }, {
+        t({ "\\begin{pmatrix}", "" }),
+        i(1, "a"), t(" & "), i(2, "b"), t( {" \\\\", ""} ),
+        i(3, "c"), t(" & "), i(4, "d"), t( {" \\\\", ""} ),
+        t( {"\\end{pmatrix}", ""} ),
+        i(0),
+    }),
+
 })
