@@ -14,6 +14,9 @@ local has_words_before = function()
 end
 
 cmp.setup({
+  experimental = {
+      ghost_text = true
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -25,13 +28,11 @@ cmp.setup({
   },
   mapping = {
     -- confirm completion
-    ['<CR>'] = cmp.mapping.confirm({select = false}),
+    ['<right>'] = cmp.mapping.confirm( {select = true} ),
+    ['<CR>'] = cmp.mapping.confirm( {select = false} ),
 
     -- trigger completion menu
     ['<C-s>'] = cmp.mapping.complete(),
-
-    -- close completion menu
-    ['<esc>'] = cmp.mapping.close(),
 
     -- "super tab"
     ["<Tab>"] = cmp.mapping(function(fallback)
