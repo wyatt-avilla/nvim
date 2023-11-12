@@ -44,3 +44,7 @@ vim.api.nvim_set_keymap('n', '<leader>lf', ':Telescope file_browser path=%:p:h s
 vim.api.nvim_set_keymap("", "<kEnter>", "<Enter>", {})
 vim.api.nvim_set_keymap("i", "<kEnter>", "<Enter>", {})
 vim.api.nvim_set_keymap("c", "<kEnter>", "<Enter>", {})
+
+-- code actions preview
+vim.api.nvim_set_keymap("n", "<leader>ca", ":lua require('actions-preview').code_actions()<CR>", {})
+vim.api.nvim_set_keymap("v", "<leader>ca", ":lua require('actions-preview').code_actions()<CR>", {})

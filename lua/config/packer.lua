@@ -84,6 +84,9 @@ return require('packer').startup(function(use)
     -- rust
     use {'simrat39/rust-tools.nvim'}
 
+    -- code action preview
+    use {"aznhe21/actions-preview.nvim"}
+
     -- snippets
     use ( "rafamadriz/friendly-snippets" )
     use ( "saadparwaiz1/cmp_luasnip" )
