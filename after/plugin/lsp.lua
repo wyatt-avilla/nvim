@@ -51,6 +51,7 @@ cmp.setup({
   mapping = {
     -- confirm completion
     ['<right>'] = cmp.mapping.confirm( {select = true} ),
+    ['<CR>'] = cmp.mapping.confirm( {select = false} ),
 
     -- trigger completion menu
     ['<C-s>'] = cmp.mapping.complete(),
