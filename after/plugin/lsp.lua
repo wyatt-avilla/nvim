@@ -23,13 +23,17 @@ cmp.setup({
     end,
   },
   sources = {
+      { name = 'nvim_lsp'},
       { name = 'luasnip'},
-      { name = 'nvim_lsp'}
+      { name = 'path'},
+      { name = 'buffer'},
+      { name = 'cmp-nvim-lua'},
+      { name = 'nvim_lsp_signature_help'},
+      { name = 'nvim_lua'},
   },
   mapping = {
     -- confirm completion
     ['<right>'] = cmp.mapping.confirm( {select = true} ),
-    ['<CR>'] = cmp.mapping.confirm( {select = false} ),
 
     -- trigger completion menu
     ['<C-s>'] = cmp.mapping.complete(),
@@ -63,5 +67,20 @@ cmp.setup({
 
 
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "pyright" },
+    ensure_installed = { "lua_ls" },
+})
+
+
+
+local rt = require("rust-tools")
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<Leader>ca", rt.hover_actions.hover_actions, { buffer = bufnr })
+    end,
+    hover_actions = {
+      auto_focus = true,
+    }
+  },
 })

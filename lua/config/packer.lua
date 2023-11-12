@@ -74,10 +74,15 @@ use {
         {'hrsh7th/cmp-nvim-lsp'}, -- required
         {'L3MON4D3/LuaSnip', run = "make install_jsregexp"},     -- required
 
-        {"hrsh7th/cmp-path"},     -- path
-        {"hrsh7th/cmp-buffer"},   -- path
+        {"hrsh7th/cmp-path"},
+        {"hrsh7th/cmp-buffer"},
+        {"hrsh7th/cmp-nvim-lsp-signature-help"},
+        {"hrsh7th/cmp-nvim-lua"},
     }
 }
+
+    -- rust
+    use {'simrat39/rust-tools.nvim'}
 
     -- snippets
     use ( "rafamadriz/friendly-snippets" )

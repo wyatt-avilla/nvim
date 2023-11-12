@@ -5,7 +5,9 @@ vim.cmd([[
     \ bash-language-server
     \ shellcheck
     \ mypy
-    \ pyright
     \ ruff-lsp
     \ marksman
+    \ codelldb
+    \ jedi-language-server
+    \ rust-analyzer
 ]])
