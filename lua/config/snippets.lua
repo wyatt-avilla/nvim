@@ -45,28 +45,49 @@ ls.add_snippets("markdown", {
       { condition = tsutils.in_mathzone }
     ),
 
-    s({trig="Rn", name="R^n", desc="n-space notation", snippetType="autosnippet" }, {
-        t("\\mathbb{R}^"),
-        i(1, "n"),
-        i(0),
+    s({trig="*", name="cdot",  snippetType="autosnippet" }, {
+          t("\\cdot"),
+          i(1)
     },
       { condition = tsutils.in_mathzone }
     ),
 
-    s({trig="([%a])foo", name="foo", desc="bar", regTrig=true,  snippetType="autosnippet" }, {
-        t("bar"),
+    s({trig="...", name="cdots",  snippetType="autosnippet" }, {
+          t("\\cdots"),
+          i(1)
     },
       { condition = tsutils.in_mathzone }
     ),
 
-    s({trig = "([^%a])mm", wordTrig = false, regTrig = true, snippetType="autosnippet"}, {
-        t(" $"),
+    s({trig="R([%dn])", name="n-space", desc="boldface n-space notation", regTrig=true,  snippetType="autosnippet" }, {
+          t("\\mathbb{R}^{"),
+          f( function(_, snip) return snip.captures[1] end ),
+          t("}"),
+          i(1)
+    },
+      { condition = tsutils.in_mathzone }
+    ),
+
+    s({trig="([uvw])([%dn])", name="vector", desc="vector expansion with subscript", regTrig=true,  snippetType="autosnippet" }, {
+          t("\\vec{"),
+          f( function(_, snip) return snip.captures[1] end ),
+          t("}_{"),
+          f( function(_, snip) return snip.captures[2] end ),
+          t("}"),
+          i(1)
+    },
+      { condition = tsutils.in_mathzone }
+    ),
+
+    s({trig = "([^%a])mm", name="inline math", desc="inline math expansion", wordTrig = false, regTrig = true, snippetType="autosnippet"}, {
+        f( function(_, snip) return snip.captures[1] end ),
+        t("$"),
         i(1, "x"),
         t("$"),
         i(0),
     }),
 
-    s({trig="bmatrix", name="testname", desc="2x2 b-matrix", }, {
+    s({trig="bmatrix", name="bracket matrix", desc="2x2 b-matrix", }, {
         t({ "\\begin{bmatrix}", "" }),
         i(1, "a"), t(" & "), i(2, "b"), t( {" \\\\", ""} ),
         i(3, "c"), t(" & "), i(4, "d"), t( {" \\\\", ""} ),
@@ -74,7 +95,7 @@ ls.add_snippets("markdown", {
         i(0),
     }),
 
-    s({trig="pmatrix", desc="2x2 p-matrix", }, {
+    s({trig="pmatrix", name="parenthesis matrix", desc="2x2 p-matrix", }, {
         t({ "\\begin{pmatrix}", "" }),
         i(1, "a"), t(" & "), i(2, "b"), t( {" \\\\", ""} ),
         i(3, "c"), t(" & "), i(4, "d"), t( {" \\\\", ""} ),
