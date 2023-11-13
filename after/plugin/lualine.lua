@@ -1,3 +1,24 @@
+local function getWakaTime()
+  if (os.date("%M") % 20 ~= 0 or os.date("%S") % 31 ~= 0) and vim.g.timeToday ~= nil then
+    return vim.g.timeToday
+  end
+
+  _G.WakaTimeLocation = ""
+  vim.cmd('redir => WakaTimeLocation')
+  vim.cmd('silent WakaTimeCliLocation')
+  vim.cmd('redir END')
+  local WakaTimeLocation = vim.g.WakaTimeLocation
+
+  local handle = io.popen(WakaTimeLocation .. " " .. "--today" )
+  local timeToday = handle:read("*a")
+  handle:close()
+
+  timeToday = string.match(timeToday, "([^\n]+)")
+  vim.g.timeToday = timeToday
+
+  return (timeToday)
+end
+
 local colors = {
   blue   = '#165776',
   cyan   = '#389aac',
@@ -41,7 +62,7 @@ require('lualine').setup {
     lualine_x = {},
     lualine_y = { 'filetype', 'progress' },
     lualine_z = {
-      { 'location', separator = { right = '' }, left_padding = 2 },
+      { getWakaTime, separator = { right = '' }, left_padding = 2 },
     },
   },
   inactive_sections = {
@@ -55,4 +76,3 @@ require('lualine').setup {
   tabline = {},
   extensions = {},
 }
-
