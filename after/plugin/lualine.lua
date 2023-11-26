@@ -13,6 +13,10 @@ local function getWakaTime()
   local timeToday = handle:read("*a")
   handle:close()
 
+  if timeToday:match("%S") == nil then
+    return "0 mins"
+  end
+
   timeToday = string.match(timeToday, "([^\n]+)")
   vim.g.timeToday = timeToday
 
