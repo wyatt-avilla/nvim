@@ -14,6 +14,7 @@ local function getWakaTime()
   handle:close()
 
   if timeToday:match("%S") == nil then
+    vim.g.timeToday = "0 mins"
     return "0 mins"
   end
 
