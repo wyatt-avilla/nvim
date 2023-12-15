@@ -23,6 +23,7 @@ cmp.setup({
     end,
   },
   sources = {
+      { name = 'copilot'},
       { name = 'nvim_lsp'},
       { name = 'luasnip'},
       { name = 'path'},
@@ -39,6 +40,7 @@ cmp.setup({
     fields = {'menu', 'abbr', 'kind'},
       format = function(entry, item)
           local menu_icon ={
+             copilot = '',
              nvim_lsp = '',
              luasnip = '󰆐',
              buffer = '󰏫',
