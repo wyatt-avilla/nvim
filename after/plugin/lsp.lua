@@ -33,8 +33,12 @@ cmp.setup({
       { name = 'nvim_lua'},
   },
   window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered()
+      completion = cmp.config.window.bordered{
+        winhighlight = 'Normal:Whitespace,FloatBorder:Whitespace,CursorLine:TelescopeSelection,Search:None',
+      },
+      documentation = cmp.config.window.bordered{
+        winhighlight = 'Normal:Whitespace,FloatBorder:Whitespace,CursorLine:TelescopeSelection,Search:None',
+      },
   },
   formatting = {
     fields = {'menu', 'abbr', 'kind'},
