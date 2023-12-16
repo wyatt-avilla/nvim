@@ -24,31 +24,21 @@ local function getWakaTime()
   return (timeToday)
 end
 
-local colors = {
-  blue   = '#165776',
-  cyan   = '#389aac',
-  black  = '#1d1d1d',
-  white  = '#c6c6c6',
-  red    = '#d18ea6',
-  violet = '#a57fc4',
-  grey   = '#3f3f3f',
-}
-
 local bubbles_theme = {
   normal = {
-    a = { fg = colors.black, bg = colors.violet },
-    b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.black, bg = colors.black },
+    a = { fg = _G.MyGlobalColors.black, bg = _G.MyGlobalColors.purple },
+    b = { fg = _G.MyGlobalColors.grey, bg = _G.MyGlobalColors.bg1 },
+    c = { fg = _G.MyGlobalColors.black, bg = _G.MyGlobalColors.bg0 },
   },
 
-  insert = { a = { fg = colors.black, bg = colors.blue } },
-  visual = { a = { fg = colors.black, bg = colors.cyan } },
-  replace = { a = { fg = colors.black, bg = colors.red } },
+  insert = { a = { fg = _G.MyGlobalColors.black, bg = _G.MyGlobalColors.bg_blue } },
+  visual = { a = { fg = _G.MyGlobalColors.black, bg =  _G.MyGlobalColors.cyan } },
+  replace = { a = { fg = _G.MyGlobalColors.black, bg = _G.MyGlobalColors.red } },
 
   inactive = {
-    a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.white, bg = colors.black },
-    c = { fg = colors.black, bg = colors.black },
+    a = { fg = _G.MyGlobalColors.dark_purple, bg = _G.MyGlobalColors.black },
+    b = { fg = _G.MyGlobalColors.dark_red, bg = _G.MyGlobalColors.black },
+    c = { fg = _G.MyGlobalColors.dark_yellow, bg = _G.MyGlobalColors.black },
   },
 }
 

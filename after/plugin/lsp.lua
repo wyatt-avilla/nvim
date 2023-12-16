@@ -34,10 +34,10 @@ cmp.setup({
   },
   window = {
       completion = cmp.config.window.bordered{
-        winhighlight = 'Normal:Whitespace,FloatBorder:Whitespace,CursorLine:TelescopeSelection,Search:None',
+        winhighlight = 'Normal:Whitespace,FloatBorder:TelescopeResultsBorder,CursorLine:TelescopeSelection,Search:None',
       },
       documentation = cmp.config.window.bordered{
-        winhighlight = 'Normal:Whitespace,FloatBorder:Whitespace,CursorLine:TelescopeSelection,Search:None',
+        winhighlight = 'Normal:Whitespace,FloatBorder:TelescopeResultsBorder,CursorLine:TelescopeSelection,Search:None',
       },
   },
   formatting = {
