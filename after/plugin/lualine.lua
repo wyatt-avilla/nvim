@@ -24,6 +24,38 @@ local function getWakaTime()
   return (timeToday)
 end
 
+local function fileIcon ()
+    local icons = {
+        ["lua"] = "",
+        ["python"] = "󱔎",
+        ["rust"] = "󰟟",
+        ["c"] = "",
+        ["cpp"] = "",
+        ["sh"] = "",
+
+        ["gitcommit"] = "",
+        ["gitignore"] = "",
+        ["fugitive"] = "",
+
+        ["zsh"] = "",
+        ["toml"] = "",
+        ["conf"] = "",
+
+        ["markdown"] = "",
+        ["text"] = "",
+        ["tex"] = "",
+
+        ["gentoo-make-conf"] = "󰣨",
+        ["gentoo-package-mask"] = "󰣨",
+        ["gentoo-package-use"] = "󰣨",
+        ["gentoo-package-keywords"] = "󰣨",
+
+        ["alpha"] = "",
+    }
+    local icon = icons[vim.bo.filetype]
+    return icon and icon or ""
+end
+
 local bubbles_theme = {
   normal = {
     a = { fg = _G.MyGlobalColors.black, bg = _G.MyGlobalColors.purple },
@@ -55,7 +87,7 @@ require('lualine').setup {
     lualine_b = { 'filename', 'branch' },
     lualine_c = { 'fileformat' },
     lualine_x = {},
-    lualine_y = { 'filetype', 'progress' },
+    lualine_y = { fileIcon, 'progress' },
     lualine_z = {
       { getWakaTime, separator = { right = '' }, left_padding = 2 },
     },
