@@ -40,6 +40,7 @@ local function fileIcon ()
         ["zsh"] = "",
         ["toml"] = "",
         ["conf"] = "",
+        ["make"] = "",
 
         ["markdown"] = "",
         ["text"] = "",
