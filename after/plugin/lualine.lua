@@ -34,6 +34,7 @@ local function fileIcon ()
         ["sh"] = "",
 
         ["gitcommit"] = "",
+        ["diff"] = "",
         ["gitignore"] = "",
         ["fugitive"] = "",
 
