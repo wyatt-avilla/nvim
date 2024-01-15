@@ -6,6 +6,7 @@ lsp.setup()
 local luasnip = require('luasnip')
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 local has_words_before = function()
   unpack = unpack or table.unpack
@@ -92,6 +93,15 @@ cmp.setup({
 
 require("mason-lspconfig").setup({
     ensure_installed = { "lua_ls" },
+})
+
+require("lspconfig").clangd.setup({
+  on_attach = on_attach,
+  capabilities = cmp_nvim_lsp.default_capabilities(),
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
 })
 
 
