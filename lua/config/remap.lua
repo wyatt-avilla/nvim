@@ -48,3 +48,6 @@ vim.api.nvim_set_keymap("c", "<kEnter>", "<Enter>", {})
 -- code actions preview
 vim.api.nvim_set_keymap("n", "<leader>ca", ":lua require('actions-preview').code_actions()<CR>", {})
 vim.api.nvim_set_keymap("v", "<leader>ca", ":lua require('actions-preview').code_actions()<CR>", {})
+
+-- expand inline error
+vim.api.nvim_set_keymap("n", "<leader>e", ":lua vim.diagnostic.open_float(0, {scope='line'})<CR>", {})
