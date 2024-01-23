@@ -31,6 +31,7 @@ local function fileIcon ()
         ["rust"] = "󰟟",
         ["c"] = "",
         ["cpp"] = "",
+        ["asm"] = "",
         ["sh"] = "",
 
         ["gitcommit"] = "",
@@ -42,6 +43,7 @@ local function fileIcon ()
         ["toml"] = "",
         ["conf"] = "",
         ["make"] = "",
+        ["dockerfile"] = "󰡨",
 
         ["markdown"] = "",
         ["text"] = "",
