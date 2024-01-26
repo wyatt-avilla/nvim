@@ -10,4 +10,6 @@ vim.cmd([[
     \ codelldb
     \ jedi-language-server
     \ rust-analyzer
+    \ clangd
+    \ clang-format
 ]])
