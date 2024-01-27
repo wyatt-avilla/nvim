@@ -14,6 +14,13 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+lsp.set_sign_icons({
+  error = '',
+  warn = '',
+  hint = '󰥱',
+  info = '',
+})
+
 cmp.setup({
   experimental = {
       ghost_text = true
