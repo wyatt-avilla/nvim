@@ -31,7 +31,7 @@ local TelescopeColors = {
     TelescopeMatching = { fg = MyGlobalColors.yellow },
     TelescopeSelection = { bg = MyGlobalColors.bg2 },
 
-    TelescopePromptTitle = { fg = MyGlobalColors.yellow , bg = MyGlobalColors.bg0 },
+    TelescopePromptTitle = { fg = MyGlobalColors.yellow, bg = MyGlobalColors.bg0 },
     TelescopePromptPrefix = { fg = MyGlobalColors.yellow },
     TelescopePromptBorder = { fg = MyGlobalColors.purple, bg = MyGlobalColors.bg0 },
 
@@ -47,9 +47,8 @@ function Color_init(color)
     vim.cmd.colorscheme(color)
 
     for hl, col in pairs(TelescopeColors) do
-       vim.api.nvim_set_hl(0, hl, col)
+        vim.api.nvim_set_hl(0, hl, col)
     end
-
 end
 
 Color_init()

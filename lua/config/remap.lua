@@ -38,7 +38,8 @@ vim.api.nvim_set_keymap('x', 'x', '\"_d', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>lg', ':Telescope live_grep<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>lb', ':Telescope buffers<CR>', {})
-vim.api.nvim_set_keymap('n', '<leader>lf', ':Telescope file_browser path=%:p:h select_buffer=true no_ignore=true<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>lf', ':Telescope file_browser path=%:p:h select_buffer=true no_ignore=true<CR>',
+    { noremap = true })
 
 -- fix kitty enter key
 vim.api.nvim_set_keymap("", "<kEnter>", "<Enter>", {})

@@ -6,7 +6,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
 
-    -- telescope 
+    -- telescope
     use {
         "nvim-telescope/telescope-file-browser.nvim",
         requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
@@ -18,23 +18,23 @@ return require('packer').startup(function(use)
 
 
     -- tree sitter
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
 
     -- yuck highlighting
-    use( "elkowar/yuck.vim" )
+    use("elkowar/yuck.vim")
 
 
     -- wakatime
-    use( "wakatime/vim-wakatime" )
+    use("wakatime/vim-wakatime")
 
 
     -- colorizer
-    use( "norcalli/nvim-colorizer.lua" )
+    use("norcalli/nvim-colorizer.lua")
 
 
     -- fugitive (git)
-    use ( "tpope/vim-fugitive" )
+    use("tpope/vim-fugitive")
 
 
     -- git-signs
@@ -49,8 +49,8 @@ return require('packer').startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',
         requires = {
-            {'nvim-tree/nvim-web-devicons', opt = true},
-    },
+            { 'nvim-tree/nvim-web-devicons', opt = true },
+        },
     }
 
 
@@ -60,78 +60,77 @@ return require('packer').startup(function(use)
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- required
-            {                                      -- optional
-            'williamboman/mason.nvim',
-            run = function()
-                pcall(vim.cmd, 'MasonUpdate')
-            end,
-        },
-        {'williamboman/mason-lspconfig.nvim'}, -- optional
+            { 'neovim/nvim-lspconfig' }, -- required
+            {                          -- optional
+                'williamboman/mason.nvim',
+                run = function()
+                    pcall(vim.cmd, 'MasonUpdate')
+                end,
+            },
+            { 'williamboman/mason-lspconfig.nvim' }, -- optional
 
-        -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- required
-        {'hrsh7th/cmp-nvim-lsp'}, -- required
-        {'L3MON4D3/LuaSnip', run = "make install_jsregexp"},     -- required
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },                          -- required
+            { 'hrsh7th/cmp-nvim-lsp' },                      -- required
+            { 'L3MON4D3/LuaSnip',                   run = "make install_jsregexp" }, -- required
 
-        {"hrsh7th/cmp-path"},
-        {"hrsh7th/cmp-buffer"},
-        {"hrsh7th/cmp-nvim-lsp-signature-help"},
-        {"hrsh7th/cmp-nvim-lua"},
+            { "hrsh7th/cmp-path" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-nvim-lsp-signature-help" },
+            { "hrsh7th/cmp-nvim-lua" },
+        }
     }
-}
 
     -- copilot
     use {
-      "zbirenbaum/copilot.lua",
-      cmd = "Copilot",
-      event = "InsertEnter",
-      config = function ()
-        require("copilot").setup({
-            suggestion = { enabled = false },
-            panel = { enabled = false },
-        })
-      end
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+            })
+        end
     }
 
     use {
-      "zbirenbaum/copilot-cmp",
-      after = { "copilot.lua" },
-      config = function ()
-        require("copilot_cmp").setup()
-      end
+        "zbirenbaum/copilot-cmp",
+        after = { "copilot.lua" },
+        config = function()
+            require("copilot_cmp").setup()
+        end
     }
 
     -- rust
-    use {'simrat39/rust-tools.nvim'}
+    use { 'simrat39/rust-tools.nvim' }
 
     -- code action preview
-    use {"aznhe21/actions-preview.nvim"}
+    use { "aznhe21/actions-preview.nvim" }
 
     -- snippets
-    use ( "rafamadriz/friendly-snippets" )
-    use ( "saadparwaiz1/cmp_luasnip" )
+    use("rafamadriz/friendly-snippets")
+    use("saadparwaiz1/cmp_luasnip")
 
 
     -- alpha
     use {
         'goolord/alpha-nvim',
-        config = function ()
-            require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        config = function()
+            require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
         end
     }
 
 
     -- startup time
-    use ( "dstein64/vim-startuptime" )
+    use("dstein64/vim-startuptime")
 
     -- autoclose
-    use ( 'm4xshen/autoclose.nvim' )
+    use('m4xshen/autoclose.nvim')
 
     -- surround
-    use ( 'tpope/vim-surround' )
+    use('tpope/vim-surround')
 
     -- gentoo/portage syntax
-    use ( 'gentoo/gentoo-syntax' )
-
+    use('gentoo/gentoo-syntax')
 end)

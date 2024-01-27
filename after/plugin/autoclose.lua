@@ -1,6 +1,6 @@
 require("autoclose").setup({
-   options = {
-      disabled_filetypes = { "text" },
-      autoindent = false,
-   },
+    options = {
+        disabled_filetypes = { "text" },
+        autoindent = false,
+    },
 })
