@@ -12,6 +12,15 @@ require("telescope").setup {
             },
         },
     },
+    pickers = {
+        buffers = {
+            mappings = {
+                ["n"] = {
+                    ["x"] = tsactions.delete_buffer,
+                },
+            },
+        },
+    },
     extensions = {
         file_browser = {
             hijack_netrw = true,
