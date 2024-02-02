@@ -41,6 +41,8 @@ vim.api.nvim_set_keymap('n', '<leader>S', ':Telescope grep_string<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>lb', ':Telescope buffers<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>lf', ':Telescope file_browser path=%:p:h select_buffer=true no_ignore=true<CR>',
     { noremap = true })
+vim.api.nvim_set_keymap('x', '<leader>sh', [["zy<cmd>exec 'Telescope grep_string default_text=' . escape(@z, ' ')<cr>]],
+    { noremap = true, silent = true })
 
 -- fix kitty enter key
 vim.api.nvim_set_keymap("", "<kEnter>", "<Enter>", {})
