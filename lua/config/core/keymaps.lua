@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 -- colemak dh movement rebinds
+-- TODO: merge n and x into a table {'n', 'x'}
 vim.api.nvim_set_keymap('n', 'n', 'h', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', 'n', 'h', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'e', 'j', { noremap = true, silent = true })
@@ -18,9 +19,6 @@ vim.api.nvim_set_keymap('n', 'k', 'n', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', 'k', 'n', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'l', 'e', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', 'l', 'e', { noremap = true, silent = true })
-
--- find previous occurrence remap
---vim.api.nvim_set_keymap('n', '<S-k>', '<S-n>', { noremap = true, silent = true })
 
 -- :wq as root
 vim.cmd([[command! -nargs=0 WW :execute 'w !doas tee % >/dev/null' | q!]])
