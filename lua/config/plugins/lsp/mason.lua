@@ -15,28 +15,28 @@ return {
 
     lspconfig.setup({
       ensure_installed = {
-          "lua_ls",
-          "bashls",
-          "clangd",
-          "pylsp",
-          "pyright",
-          "marksman",
-          "rust_analyzer",
+        "lua_ls",
+        "bashls",
+        "clangd",
+        "pylsp",
+        "pyright",
+        "marksman",
+        "rust_analyzer",
       },
       handlers = {
         lsp.default_setup,
-      }
+      },
     })
 
     tool_installer.setup({
       ensure_installed = {
-          "stylua",
-          "black",
-          "isort",
-          "clang-format",
-          "shfmt",
-          "rustfmt",
-      }
+        "stylua",
+        "black",
+        "isort",
+        "clang-format",
+        "shfmt",
+        "rustfmt",
+      },
     })
-  end
+  end,
 }
