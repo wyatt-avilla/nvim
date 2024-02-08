@@ -12,6 +12,14 @@ return {
     local lsp = require("lsp-zero")
     local lspconfig = require("lspconfig")
 
+    vim.diagnostic.config({
+      float = {
+        source = "always",
+        show_header = true,
+        border = "rounded",
+      },
+    })
+
     lsp.preset("recommended")
     lsp.setup()
 
