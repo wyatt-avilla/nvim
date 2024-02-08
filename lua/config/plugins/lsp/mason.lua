@@ -18,8 +18,8 @@ return {
           "lua_ls",
           "bashls",
           "clangd",
-          "pylsp",         -- formatting
-          --"pyright",
+          "pylsp",
+          "pyright",
           "marksman",
           "rust_analyzer",
       },
