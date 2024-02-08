@@ -27,18 +27,6 @@ return {
             hint  = '󰥱',
             info  = '',
         })
-        --lsp.format_on_save({
-        --    format_opts = {
-        --        async = false,
-        --        timeout_ms = 10000,
-        --    },
-        --    servers = {
-        --        ['rust_analyzer'] = { 'rust' },
-        --        ['clangd'] = { 'c', 'cpp' },
-        --        ['lua-ls'] = { 'lua' },
-        --        ['ruff_lsp'] = { 'python' }
-        --    }
-        --})
 
         lsp.on_attach(function(client, bufnr)
             lsp.default_keymaps({ buffer = bufnr })
