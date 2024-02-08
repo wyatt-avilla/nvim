@@ -18,10 +18,9 @@ return {
           "lua_ls",
           "bashls",
           "clangd",
-          "pylsp",
-          --"efm",
+          "pylsp",         -- formatting
+          --"pyright",
           "marksman",
-          "ruff_lsp",
           "rust_analyzer",
       },
       handlers = {
@@ -33,11 +32,10 @@ return {
       ensure_installed = {
           "stylua",
           "black",
+          "isort",
           "clang-format",
           "shfmt",
-          --"mypy",
-          "shellcheck",
-          "yamllint",
+          "rustfmt",
       }
     })
   end
