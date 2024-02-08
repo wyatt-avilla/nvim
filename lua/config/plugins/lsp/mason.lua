@@ -18,7 +18,7 @@ return {
         "lua_ls",
         "bashls",
         "clangd",
-        "pyright",
+        "pylsp",
         "marksman",
         "rust_analyzer",
       },
@@ -40,6 +40,8 @@ return {
         -- linters
         "shellcheck",
         "markdownlint",
+        "mypy",
+        "pylint",
       },
     })
   end,
