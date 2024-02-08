@@ -9,5 +9,9 @@ return {
     vim.keymap.set("n", "<leader>ghu", gs.undo_stage_hunk, { desc = "Undo staged hunk" })
     vim.keymap.set("n", "<leader>ghr", gs.reset_hunk, { desc = "Reset hunk" })
     vim.keymap.set("n", "<leader>ghd", gs.diffthis, { desc = "Diff hunk" })
+    vim.keymap.set("n", "<leader>ghD", function()
+      vim.cmd("wincmd p")
+      vim.cmd("q")
+    end, { desc = "Diff close" })
   end,
 }
