@@ -7,7 +7,7 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "isort", "black" },
-        markdown = { "prettier" },
+        markdown = { "markdownlint" },
         c = { "clang_format" },
         sh = { "shfmt" },
         rust = { "rustfmt" },

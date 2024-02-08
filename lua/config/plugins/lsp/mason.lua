@@ -18,7 +18,6 @@ return {
         "lua_ls",
         "bashls",
         "clangd",
-        "pylsp",
         "pyright",
         "marksman",
         "rust_analyzer",
@@ -30,12 +29,17 @@ return {
 
     tool_installer.setup({
       ensure_installed = {
+        -- formatters
         "stylua",
         "black",
         "isort",
         "clang-format",
         "shfmt",
         "rustfmt",
+        "markdownlint",
+        -- linters
+        "shellcheck",
+        "markdownlint",
       },
     })
   end,
