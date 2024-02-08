@@ -8,7 +8,6 @@ return {
                 lua = { "stylua" },
                 python = { "isort", "black" },
                 markdown = { "prettier" },
-                text = { "prettier" },
                 c = { "clang_format" },
                 sh = { "shfmt" },
                 rust = { "rustfmt" },
