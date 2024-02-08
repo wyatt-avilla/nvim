@@ -10,8 +10,17 @@ return {
     },
     config = function()
         local lsp = require('lsp-zero')
+        local lspconfig = require('lspconfig')
+
         lsp.preset('recommended')
         lsp.setup()
+
+        require('mason-lspconfig').setup_handlers({
+            function(server)
+              lspconfig[server].setup({})
+            end
+        })
+
         lsp.set_sign_icons({
             error = '',
             warn  = '',
