@@ -14,11 +14,6 @@ vim.keymap.set({ "n", "v" }, "l", "e", { noremap = true })
 -- :wq as root
 vim.cmd([[command! -nargs=0 WW :execute 'w !doas tee % >/dev/null' | q!]])
 
--- kitty enter key
-vim.api.nvim_set_keymap("", "<kEnter>", "<Enter>", {})
-vim.api.nvim_set_keymap("i", "<kEnter>", "<Enter>", {})
-vim.api.nvim_set_keymap("c", "<kEnter>", "<Enter>", {})
-
 -- delete highlighted without yanking
 vim.api.nvim_set_keymap("x", "x", '"_d', { noremap = true, silent = true })
 
