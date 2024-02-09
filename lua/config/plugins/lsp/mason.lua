@@ -24,15 +24,19 @@ return {
       },
       handlers = {
         lsp.default_setup,
-        require("lspconfig").lua_ls.setup({
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = { "vim" },
+        ["rust_analyzer"] = function() end, -- rustaceanvim handles this
+        ["lua_ls"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.lua_ls.setup({
+            settings = {
+              Lua = {
+                diagnostics = {
+                  globals = { "vim" },
+                },
               },
             },
-          },
-        }),
+          })
+        end,
       },
     })
 
