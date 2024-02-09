@@ -105,7 +105,13 @@ return {
         },
         lualine_b = { "filename", "branch" },
         lualine_c = { "fileformat" },
-        lualine_x = {},
+        lualine_x = {
+          {
+            require("lazy.status").updates,
+            cond = require("lazy.status").has_updates,
+            color = { fg = "#ff9e64" },
+          },
+        },
         lualine_y = { fileIcon, "progress" },
         lualine_z = {
           { getWakaTime, separator = { right = "" }, left_padding = 2 },

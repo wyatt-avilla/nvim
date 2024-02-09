@@ -18,4 +18,9 @@ require("lazy").setup({ { import = "config.plugins" }, { import = "config.plugin
   change_detection = {
     notify = false,
   },
+  checker = {
+    enabled = true,
+    notify = false,
+    frequency = 3600,
+  },
 })
