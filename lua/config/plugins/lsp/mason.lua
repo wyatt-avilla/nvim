@@ -37,6 +37,7 @@ return {
         "shfmt",
         "rustfmt",
         "markdownlint",
+        "prettier",
         -- linters
         "shellcheck",
         "markdownlint",
