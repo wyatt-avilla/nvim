@@ -23,4 +23,7 @@ require("lazy").setup({ { import = "config.plugins" }, { import = "config.plugin
     notify = false,
     frequency = 3600,
   },
+  ui = {
+    border = "rounded",
+  },
 })
