@@ -10,7 +10,6 @@ return {
 
     telescope.setup({
       defaults = {
-        initial_mode = "normal",
         mappings = {
           ["n"] = {
             ["e"] = tsactions.move_selection_next,
@@ -20,6 +19,7 @@ return {
       },
       pickers = {
         buffers = {
+          initial_mode = "normal",
           mappings = {
             ["n"] = {
               ["x"] = tsactions.delete_buffer,
@@ -29,6 +29,7 @@ return {
       },
       extensions = {
         file_browser = {
+          initial_mode = "normal",
           hijack_netrw = true,
           cwd_to_path = true,
           theme = "dropdown",
