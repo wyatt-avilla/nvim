@@ -14,8 +14,13 @@ return {
       local WakaTimeLocation = vim.g.WakaTimeLocation
 
       local handle = io.popen(WakaTimeLocation .. " " .. "--today")
-      local timeToday = handle:read("*a")
-      handle:close()
+      local timeToday
+      if handle then
+        timeToday = handle:read("*a")
+        handle:close()
+      else
+        timeToday = "WakaTime Missing"
+      end
 
       if timeToday:match("%S") == nil then
         vim.g.timeToday = "0 mins"
