@@ -1,8 +1,0 @@
-require("config.remap")
-require("config.packer")
-require("config.colors")
-require("config.set")
-require("config.misc")
-require("config.lsps")
-require("config.snippets")
-require("config.tsutils")
