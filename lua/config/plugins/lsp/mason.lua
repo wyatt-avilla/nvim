@@ -8,12 +8,12 @@ return {
   config = function()
     local mason = require("mason")
     local lsp = require("lsp-zero")
-    local lspconfig = require("mason-lspconfig")
+    local mason_lspconfig = require("mason-lspconfig")
     local tool_installer = require("mason-tool-installer")
 
     mason.setup()
 
-    lspconfig.setup({
+    mason_lspconfig.setup({
       ensure_installed = {
         "lua_ls",
         "bashls",
@@ -24,6 +24,15 @@ return {
       },
       handlers = {
         lsp.default_setup,
+        require("lspconfig").lua_ls.setup({
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = { "vim" },
+              },
+            },
+          },
+        }),
       },
     })
 

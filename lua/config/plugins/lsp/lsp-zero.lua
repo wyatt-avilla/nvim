@@ -20,26 +20,9 @@ return {
       },
     })
 
-    lsp.preset("recommended")
-    lsp.setup()
-
-    require("mason-lspconfig").setup_handlers({
-      function(server)
-        lspconfig[server].setup({})
-      end,
-
-      ["lua_ls"] = function()
-        lspconfig.lua_ls.setup({
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = { "vim" },
-              },
-            },
-          },
-        })
-      end,
-    })
+    lsp.on_attach(function(client, bufnr)
+      lsp.default_keymaps({ client = bufnr })
+    end)
 
     lsp.set_sign_icons({
       error = "",
@@ -48,9 +31,6 @@ return {
       info = "",
     })
 
-    lsp.on_attach(function(client, bufnr)
-      lsp.default_keymaps({ buffer = bufnr })
-    end)
     vim.keymap.set(
       "n",
       "<leader>e",
