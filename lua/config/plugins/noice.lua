@@ -1,7 +1,7 @@
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
-  enabled = false,
+  enabled = false, -- https://github.com/neovim/neovim/issues/20311
   dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
@@ -14,6 +14,11 @@ return {
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = false,
         },
+        hover = {
+          enabled = false,
+        },
+      },
+      presets = {
         lsp_doc_border = true,
       },
     })
@@ -23,5 +28,8 @@ return {
     vim.keymap.set("n", "<leader>nl", function()
       require("noice").cmd("last")
     end, { desc = "Last Noice message" })
+    vim.keymap.set("n", "<leader>nd", function()
+      require("noice").cmd("dismiss")
+    end, { desc = "Dismiss Noice message" })
   end,
 }
