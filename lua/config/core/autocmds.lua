@@ -1,3 +1,12 @@
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({ higroup = "YankHighlight" })
+  end,
+  group = highlight_group,
+  pattern = "*",
+})
 local function update_time_today()
   _G.WakaTimeLocation = ""
   vim.cmd("redir => WakaTimeLocation")
