@@ -2,37 +2,6 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    local function getWakaTime()
-      if (os.date("%M") % 20 ~= 0 or os.date("%S") % 31 ~= 0) and vim.g.timeToday ~= nil then
-        return vim.g.timeToday
-      end
-
-      _G.WakaTimeLocation = ""
-      vim.cmd("redir => WakaTimeLocation")
-      vim.cmd("silent WakaTimeCliLocation")
-      vim.cmd("redir END")
-      local WakaTimeLocation = vim.g.WakaTimeLocation
-
-      local handle = io.popen(WakaTimeLocation .. " " .. "--today")
-      local timeToday
-      if handle then
-        timeToday = handle:read("*a")
-        handle:close()
-      else
-        timeToday = "WakaTime Missing"
-      end
-
-      if timeToday:match("%S") == nil then
-        vim.g.timeToday = "0 mins"
-        return "0 mins"
-      end
-
-      timeToday = string.match(timeToday, "([^\n]+)")
-      vim.g.timeToday = timeToday
-
-      return timeToday
-    end
-
     local function fileIcon()
       local icons = {
         ["lua"] = "",
@@ -119,7 +88,13 @@ return {
         },
         lualine_y = { fileIcon, "progress" },
         lualine_z = {
-          { getWakaTime, separator = { right = "" }, left_padding = 2 },
+          {
+            function()
+              return vim.g.timeToday
+            end,
+            separator = { right = "" },
+            left_padding = 2,
+          },
         },
       },
       inactive_sections = {
