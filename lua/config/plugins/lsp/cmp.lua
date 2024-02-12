@@ -23,7 +23,7 @@ return {
     cmp.setup({
       window = {
         completion = cmp.config.window.bordered({
-          col_offset = -3,
+          col_offset = -2,
           side_padding = 0,
           winhighlight = "Normal:Whitespace,FloatBorder:TelescopeResultsBorder,CursorLine:TelescopeSelection,Search:None",
         }),
