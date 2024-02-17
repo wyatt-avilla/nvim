@@ -66,7 +66,7 @@ return {
     vim.keymap.set(
       "x",
       "<leader>sh",
-      [["zy<cmd>exec 'Telescope grep_string default_text=' . escape(@z, ' ')<cr>]],
+      [["zy<cmd>exec 'Telescope grep_string default_text=' . escape(@z, ' ')<cr><esc>]],
       { desc = "Grep for highlighted text" }
     )
   end,
