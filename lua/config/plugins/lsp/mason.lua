@@ -10,6 +10,11 @@ return {
     local lsp = require("lsp-zero")
     local mason_lspconfig = require("mason-lspconfig")
     local tool_installer = require("mason-tool-installer")
+    local registry = require("mason-registry")
+
+    registry:on("package:install:success", function(_)
+      require("config.core.autocmds").update_mason_outdated()
+    end)
 
     mason.setup({
       ui = {

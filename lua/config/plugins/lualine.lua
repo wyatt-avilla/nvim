@@ -85,6 +85,15 @@ return {
             cond = require("lazy.status").has_updates,
             color = { fg = "#ff9e64" },
           },
+          {
+            function()
+              return " " .. vim.g.MasonOutdatedCount
+            end,
+            cond = function()
+              return vim.g.MasonOutdatedCount and vim.g.MasonOutdatedCount > 0
+            end,
+            color = { fg = "#ff9e64" },
+          },
         },
         lualine_y = { fileIcon, "progress" },
         lualine_z = {
