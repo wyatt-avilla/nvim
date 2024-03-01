@@ -19,3 +19,6 @@ vim.api.nvim_set_keymap("x", "x", '"_d', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<Leader>we", ":wincmd w<CR>", { desc = "Cycle next window" })
 vim.keymap.set("n", "<Leader>wi", ":wincmd W<CR>", { desc = "Cycle prev window" })
+
+vim.keymap.set("v", "E", ":m '>+1<CR>gv=gv", { desc = "Move selected lines up" })
+vim.keymap.set("v", "I", ":m '<-2<CR>gv=gv", { desc = "Move selected lines down" })
