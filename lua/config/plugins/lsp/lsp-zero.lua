@@ -20,8 +20,8 @@ return {
     })
 
     vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { desc = "Open diagnostic" })
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Goto next error" })
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Goto previous error" })
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Goto previous error" })
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Goto next error" })
     vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, { desc = "Add error to quick-fix list" })
 
     -- Use LspAttach autocommand to only map the following keys
