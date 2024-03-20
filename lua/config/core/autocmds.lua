@@ -48,8 +48,8 @@ function M.update_time_today()
       args = { "--today" },
       on_exit = function(output, _)
         local time_today = output:result()[1]
-        if time_today == nil then
-          vim.g.timeToday = "0 mins"
+        if time_today == nil or time_today == "" then
+          vim.g.timeToday = "0 secs"
         else
           vim.g.timeToday = time_today
         end

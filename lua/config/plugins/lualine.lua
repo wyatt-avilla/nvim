@@ -99,7 +99,7 @@ return {
         lualine_z = {
           {
             function()
-              return vim.g.timeToday and vim.g.timeToday or "0 mins"
+              return vim.g.timeToday
             end,
             separator = { right = "" },
             left_padding = 2,
