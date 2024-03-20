@@ -1,4 +1,4 @@
-local exported = {}
+local M = {}
 
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
 })
 
-function exported.update_mason_outdated()
+function M.update_mason_outdated()
   local registry = require("mason-registry")
   local installed_packages = registry.get_installed_package_names()
   local packages_outdated = 0
@@ -31,16 +31,16 @@ function exported.update_mason_outdated()
 end
 
 local mason_update_timer = vim.loop.new_timer()
-mason_update_timer:start(1000, 1800000, vim.schedule_wrap(exported.update_mason_outdated))
+mason_update_timer:start(1000, 1800000, vim.schedule_wrap(M.update_mason_outdated))
 
 local mason_update_checks = vim.api.nvim_create_augroup("mason_update_checks", { clear = true })
 vim.api.nvim_create_autocmd("User", {
-  callback = exported.update_mason_outdated,
+  callback = M.update_mason_outdated,
   group = mason_update_checks,
   pattern = "LazyVimStarted",
 })
 
-function exported.update_time_today()
+function M.update_time_today()
   local waka_time_bin = vim.api.nvim_exec("WakaTimeCliLocation", true)
   require("plenary.job")
     :new({
@@ -59,11 +59,11 @@ function exported.update_time_today()
 end
 
 local wakatime_update_timer = vim.loop.new_timer()
-wakatime_update_timer:start(1000, 1200000, vim.schedule_wrap(exported.update_time_today))
+wakatime_update_timer:start(1000, 1200000, vim.schedule_wrap(M.update_time_today))
 
 local wakatime_update = vim.api.nvim_create_augroup("wakatime_update", { clear = true })
 vim.api.nvim_create_autocmd("User", {
-  callback = exported.update_time_today,
+  callback = M.update_time_today,
   group = wakatime_update,
   pattern = "LazyVimStarted",
 })
@@ -78,4 +78,4 @@ vim.api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
 })
 
-return exported
+return M
