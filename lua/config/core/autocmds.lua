@@ -40,39 +40,10 @@ vim.api.nvim_create_autocmd("User", {
   pattern = "LazyVimStarted",
 })
 
-function M.update_time_today()
-  local waka_time_bin = vim.api.nvim_exec("WakaTimeCliLocation", true)
-  require("plenary.job")
-    :new({
-      command = waka_time_bin,
-      args = { "--today" },
-      on_exit = function(output, _)
-        local time_today = output:result()[1]
-        if time_today == nil or time_today == "" then
-          vim.g.timeToday = "0 secs"
-        else
-          vim.g.timeToday = time_today
-        end
-      end,
-    })
-    :start()
-end
-
-local wakatime_update_timer = vim.loop.new_timer()
-wakatime_update_timer:start(1000, 1200000, vim.schedule_wrap(M.update_time_today))
-
-local wakatime_update = vim.api.nvim_create_augroup("wakatime_update", { clear = true })
-vim.api.nvim_create_autocmd("User", {
-  callback = M.update_time_today,
-  group = wakatime_update,
-  pattern = "LazyVimStarted",
-})
-
 local close_timers = vim.api.nvim_create_augroup("close_timers", { clear = true })
 vim.api.nvim_create_autocmd("VimLeave", {
   callback = function()
     mason_update_timer:close()
-    wakatime_update_timer:close()
   end,
   group = close_timers,
   pattern = "*",
