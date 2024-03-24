@@ -72,5 +72,42 @@ return {
         "pylint",
       },
     })
+
+    local function update_mason_outdated()
+      local installed_packages = registry.get_installed_package_names()
+      local packages_outdated = 0
+      local function pkg_inc(success, _)
+        if success then
+          packages_outdated = packages_outdated + 1
+        end
+      end
+
+      for _, pkg in pairs(installed_packages) do
+        local p = registry.get_package(pkg)
+        if p then
+          p:check_new_version(pkg_inc)
+        end
+      end
+
+      vim.g.MasonOutdatedCount = packages_outdated
+    end
+
+    local mason_update_group = vim.api.nvim_create_augroup("mason_update", { clear = true })
+
+    local mason_update_timer = vim.loop.new_timer()
+    mason_update_timer:start(1000, 1800000, vim.schedule_wrap(update_mason_outdated))
+    vim.api.nvim_create_autocmd("VimLeave", {
+      callback = function()
+        mason_update_timer:close()
+      end,
+      group = mason_update_group,
+      pattern = "*",
+    })
+
+    vim.api.nvim_create_autocmd("User", {
+      callback = update_mason_outdated,
+      group = mason_update_group,
+      pattern = "LazyVimStarted",
+    })
   end,
 }
