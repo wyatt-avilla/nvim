@@ -25,5 +25,6 @@ require("lazy").setup({ { import = "config.plugins" }, { import = "config.plugin
   },
   ui = {
     border = "rounded",
+    backdrop = 100,
   },
 })
