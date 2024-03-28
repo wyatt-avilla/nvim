@@ -3,6 +3,10 @@ return {
   config = function()
     local function update_time_today()
       local waka_time_bin = vim.api.nvim_exec("WakaTimeCliLocation", true)
+      if vim.fn.executable(waka_time_bin) ~= 1 then
+        return
+      end
+
       require("plenary.job")
         :new({
           command = waka_time_bin,
@@ -10,10 +14,9 @@ return {
           on_exit = function(output, _)
             local time_today = output:result()[1]
             if time_today == nil or time_today == "" then
-              vim.g.timeToday = "0 secs"
-            else
-              vim.g.timeToday = time_today
+              return
             end
+            vim.g.timeToday = time_today
           end,
         })
         :start()

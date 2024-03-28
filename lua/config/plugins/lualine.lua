@@ -101,6 +101,9 @@ return {
             function()
               return vim.g.timeToday
             end,
+            cond = function()
+              return vim.g.timeToday ~= nil
+            end,
             separator = { right = "" },
             left_padding = 2,
           },
