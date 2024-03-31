@@ -24,22 +24,24 @@ return {
         "lua_ls",
         "bashls",
         "clangd",
-        "pylsp",
+        "jedi_language_server",
+        "ruff_lsp",
         "marksman",
         "rust_analyzer",
       },
       handlers = {
         lsp.default_setup,
         ["rust_analyzer"] = function() end, -- rustaceanvim handles this
-        ["pylsp"] = function()
-          lspconfig.pylsp.setup({
-            settings = {
-              pylsp = {
-                plugins = {
-                  pycodestyle = {
-                    ignore = { "E203" }, -- https://github.com/PyCQA/pycodestyle/issues/373
-                    maxLineLength = 88, -- Black default
-                  },
+        ["ruff_lsp"] = function()
+          lspconfig.ruff_lsp.setup({
+            init_options = {
+              settings = {
+                args = {
+                  "--preview",
+                  "--select",
+                  "ALL",
+                  "--ignore",
+                  "D,CPY,T20",
                 },
               },
             },
@@ -68,8 +70,6 @@ return {
       ensure_installed = {
         -- formatters
         "stylua",
-        "black",
-        "isort",
         "clang-format",
         "shfmt",
         "rustfmt",
@@ -78,8 +78,6 @@ return {
         -- linters
         "shellcheck",
         "markdownlint",
-        "mypy",
-        "pylint",
       },
     })
 
