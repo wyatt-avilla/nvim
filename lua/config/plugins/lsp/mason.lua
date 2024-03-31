@@ -8,6 +8,7 @@ return {
   config = function()
     local mason = require("mason")
     local lsp = require("lsp-zero")
+    local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
     local tool_installer = require("mason-tool-installer")
     local registry = require("mason-registry")
@@ -30,8 +31,21 @@ return {
       handlers = {
         lsp.default_setup,
         ["rust_analyzer"] = function() end, -- rustaceanvim handles this
+        ["pylsp"] = function()
+          lspconfig.pylsp.setup({
+            settings = {
+              pylsp = {
+                plugins = {
+                  pycodestyle = {
+                    ignore = { "E203" }, -- https://github.com/PyCQA/pycodestyle/issues/373
+                    maxLineLength = 88, -- Black default
+                  },
+                },
+              },
+            },
+          })
+        end,
         ["lua_ls"] = function()
-          local lspconfig = require("lspconfig")
           lspconfig.lua_ls.setup({
             settings = {
               runtime = { version = "LuaJIT" },
