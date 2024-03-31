@@ -12,10 +12,6 @@ return {
     local tool_installer = require("mason-tool-installer")
     local registry = require("mason-registry")
 
-    registry:on("package:install:success", function(_)
-      require("config.core.autocmds").update_mason_outdated()
-    end)
-
     mason.setup({
       ui = {
         border = "rounded",
@@ -91,6 +87,7 @@ return {
 
       vim.g.MasonOutdatedCount = packages_outdated
     end
+    registry:on("package:install:success", update_mason_outdated)
 
     local mason_update_group = vim.api.nvim_create_augroup("mason_update", { clear = true })
 
