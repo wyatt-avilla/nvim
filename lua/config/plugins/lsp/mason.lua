@@ -25,25 +25,20 @@ return {
         "bashls",
         "clangd",
         "jedi_language_server",
-        "ruff_lsp",
+        "ruff",
         "marksman",
         "rust_analyzer",
       },
       handlers = {
         lsp.default_setup,
         ["rust_analyzer"] = function() end, -- rustaceanvim handles this
-        ["ruff_lsp"] = function()
-          lspconfig.ruff_lsp.setup({
+        ["ruff"] = function()
+          lspconfig.ruff.setup({
             init_options = {
               settings = {
-                args = {
-                  "--preview",
-                  "--select",
-                  "ALL",
-                  "--ignore",
-                  "D,CPY,T20,E501",
-                  "--extension",
-                  "ipynb:python",
+                lint = {
+                  select = { "ALL" },
+                  ignore = { "D", "CPY", "T20", "E501" },
                 },
               },
             },
