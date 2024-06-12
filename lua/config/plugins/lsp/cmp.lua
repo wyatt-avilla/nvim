@@ -20,6 +20,7 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+
     cmp.setup({
       window = {
         completion = cmp.config.window.bordered({
@@ -35,7 +36,6 @@ return {
         fields = { "menu", "abbr", "kind" },
         format = function(entry, item)
           local source_icon = {
-            copilot = "",
             nvim_lsp = "",
             luasnip = "󰆐",
             buffer = "",
@@ -81,12 +81,10 @@ return {
         end,
       },
       sources = {
-        { name = "copilot" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },
         { name = "buffer" },
-        { name = "cmp-nvim-lua" },
         { name = "nvim_lsp_signature_help" },
         { name = "nvim_lua" },
       },
@@ -124,6 +122,27 @@ return {
           end
         end, { "i", "s" }),
       },
+
+      cmp.setup.cmdline("/", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
+      }),
+
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          {
+            name = "cmdline",
+            option = {
+              ignore_cmds = { "Man", "!" },
+            },
+          },
+        }),
+      }),
     })
   end,
 }
