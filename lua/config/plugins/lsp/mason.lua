@@ -31,7 +31,18 @@ return {
       },
       handlers = {
         lsp.default_setup,
-        ["rust_analyzer"] = function() end, -- rustaceanvim handles this
+        ["rust_analyzer"] = function()
+          lspconfig.rust_analyzer.setup({
+            settings = {
+              ["rust-analyzer"] = {
+                check = {
+                  command = "clippy",
+                  extraArgs = { "--", "-W", "clippy::pedantic" },
+                },
+              },
+            },
+          })
+        end,
         ["ruff"] = function()
           lspconfig.ruff.setup({
             init_options = {
