@@ -24,4 +24,4 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.spelllang = "en_us"
-vim.cmd([[autocmd FileType markdown,gitcommit setlocal spell]])
+vim.cmd([[autocmd FileType markdown,gitcommit,tex setlocal spell]])

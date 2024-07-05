@@ -28,6 +28,7 @@ return {
         "ruff",
         "marksman",
         "rust_analyzer",
+        "texlab",
       },
       handlers = {
         lsp.default_setup,
@@ -71,6 +72,31 @@ return {
             },
           })
         end,
+        ["texlab"] = function()
+          local commands = lspconfig.texlab.commands
+          vim.keymap.set("n", "<leader>tv", commands.TexlabForward[1], { desc = commands.TexlabForward.description })
+          vim.keymap.set("n", "<leader>tb", commands.TexlabBuild[1], { desc = commands.TexlabBuild.description })
+          vim.keymap.set(
+            "n",
+            "<leader>tc",
+            commands.TexlabCleanArtifacts[1],
+            { desc = commands.TexlabCleanArtifacts.description }
+          )
+
+          lspconfig.texlab.setup({
+            settings = {
+              texlab = {
+                build = {
+                  onSave = true,
+                },
+                forwardSearch = {
+                  executable = "zathura",
+                  args = { "--synctex-forward", "%l:1:%f", "%p" },
+                },
+              },
+            },
+          })
+        end,
       },
     })
 
@@ -83,6 +109,7 @@ return {
         "rustfmt",
         "markdownlint",
         "prettier",
+        "latexindent",
         -- linters
         "shellcheck",
         "markdownlint",
