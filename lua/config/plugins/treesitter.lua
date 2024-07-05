@@ -14,6 +14,7 @@ return {
         "c",
         "markdown",
         "markdown_inline",
+        "latex",
         "python",
         "bash",
         "lua",
