@@ -70,7 +70,7 @@ return {
           }
           local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, item)
           local strings = vim.split(kind.kind, "%s", { trimempty = true })
-          item.kind = " " .. kind_icon[strings[2]]
+          item.kind = " " .. (kind_icon[strings[2]] or "")
           item.menu = source_icon[entry.source.name]
           return item
         end,
