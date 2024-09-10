@@ -113,6 +113,7 @@ return {
         -- linters
         "shellcheck",
         "markdownlint",
+        "mypy",
       },
     })
 
