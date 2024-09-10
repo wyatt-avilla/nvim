@@ -43,5 +43,9 @@ return {
         async = 500,
       })
     end, { desc = "Format" })
+
+    conform.formatters.prettier = {
+      prepend_args = { "--prose-wrap", "always" },
+    }
   end,
 }
