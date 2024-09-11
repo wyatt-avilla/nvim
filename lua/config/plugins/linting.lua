@@ -19,5 +19,8 @@ return {
     vim.keymap.set("n", "<leader>al", function()
       lint.try_lint()
     end, { desc = "Lint" })
+
+    local mypy_args = lint.linters.mypy.args
+    mypy_args[#mypy_args + 1] = "--strict"
   end,
 }
